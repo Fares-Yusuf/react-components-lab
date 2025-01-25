@@ -1,4 +1,6 @@
 import './WeatherForecast.css';
+import WeatherIcon from './WeatherIcon';
+import WeatherData from './WeatherData';
 
 const weatherForecasts = [
     {
@@ -43,10 +45,15 @@ const WeatherForecast = () => {
         <>
             {weatherForecasts.map((forecast, index) => (
                 <div key={index} className="weather">
-                    <h2>{forecast.day}</h2>
-                    <img src={forecast.img} alt={forecast.imgAlt} />
-                    <p><span>conditions: </span>{forecast.conditions}</p>
-                    <p><span>time: </span>{forecast.time}</p>
+                    <WeatherData
+                        day={forecast.day}
+                        conditions={forecast.conditions}
+                        time={forecast.time}
+                    />
+                    <WeatherIcon
+                        img={forecast.img}
+                        imgAlt={forecast.imgAlt}
+                    />
                 </div>
             ))}
         </>
